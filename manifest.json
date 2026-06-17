@@ -1,0 +1,24 @@
+{
+  "name": "Café Ancestral - Sabor Ancestral 2.0",
+  "short_name": "Café Ancestral",
+  "description": "La cafetería de especialidad en Barranco que respeta tu tiempo. Únete a la fila virtual inteligente.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FCFAF6",
+  "theme_color": "#2E1E16",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/latte.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/croissant.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
