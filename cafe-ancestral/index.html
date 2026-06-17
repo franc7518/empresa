@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Café Ancestral - Sabor Ancestral 2.0. La cafetería de especialidad en Barranco que respeta tu tiempo. Únete a nuestra fila virtual inteligente y disfruta sin esperas.">
+    <meta name="theme-color" content="#2E1E16">
+    <title>Café Ancestral - Sabor Ancestral 2.0</title>
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/latte.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Google Fonts: Outfit (Elegant, Modern, Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons for premium vector icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- PWA Installation Toast / Banner -->
+    <div id="pwa-install-toast" class="pwa-toast hidden">
+        <div class="pwa-toast-content">
+            <i class="bi bi-phone-vibrate-fill"></i>
+            <div>
+                <h4>Café Ancestral en tu móvil</h4>
+                <p>Instala la app para unirte a la fila al instante.</p>
+            </div>
+        </div>
+        <div class="pwa-toast-actions">
+            <button id="btn-pwa-cancel" class="btn-text">Ahora no</button>
+            <button id="btn-pwa-install" class="btn-primary-sm">Instalar</button>
+        </div>
+    </div>
+
+    <!-- Notification Container for Toast Alerts -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Glassmorphic Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">Café</span> Ancestral
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="#hero" class="nav-link active">Inicio</a>
+                <a href="#fila-virtual" class="nav-link">Fila Virtual</a>
+                <a href="#carta-dinamica" class="nav-link">Carta Dinámica</a>
+                <a href="#impacto" class="nav-link">Impacto</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#fila-virtual" id="nav-cta" class="btn-nav">Fila en Vivo</a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <div class="logo"><span class="logo-accent">Café</span> Ancestral</div>
+            <button class="close-drawer" id="close-drawer"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#hero" class="drawer-link"><i class="bi bi-house"></i> Inicio</a>
+            <a href="#fila-virtual" class="drawer-link"><i class="bi bi-people"></i> Fila Virtual</a>
+            <a href="#carta-dinamica" class="drawer-link"><i class="bi bi-cup-hot"></i> Carta Dinámica</a>
+            <a href="#impacto" class="drawer-link"><i class="bi bi-globe-americas"></i> Sostenibilidad</a>
+        </nav>
+        <div class="drawer-footer">
+            <a href="#fila-virtual" class="btn-primary w-full text-center">Unirse a la Fila</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg-overlay" style="background-image: url('assets/hero_bar.png');"></div>
+            <div class="hero-content">
+                <span class="hero-badge"><i class="bi bi-stars"></i> Sabor Ancestral 2.0</span>
+                <h1 id="hero-title" class="hero-title">Tu café favorito, sin perder un minuto de tu tiempo.</h1>
+                <p class="hero-subtitle">Únete a nuestra Fila Virtual Inteligente y llega justo cuando tu mesa esté lista.</p>
+                <div class="hero-ctas">
+                    <a href="#fila-virtual" id="hero-cta-primary" class="btn-primary"><i class="bi bi-qr-code-scan"></i> Unirse a la Fila Virtual</a>
+                    <a href="#carta-dinamica" id="hero-cta-secondary" class="btn-secondary"><i class="bi bi-cup-hot"></i> Ver la Carta Dinámica</a>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feat-item">
+                        <i class="bi bi-clock-history"></i>
+                        <span>Cero Esperas</span>
+                    </div>
+                    <div class="hero-feat-item">
+                        <i class="bi bi-wifi"></i>
+                        <span>Estudiar & Socializar</span>
+                    </div>
+                    <div class="hero-feat-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Barranco, Lima</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>Desliza para explorar</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- Fila Virtual Section -->
+        <section id="fila-virtual" class="section fila-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-info">
+                        <span class="badge-accent"><i class="bi bi-cpu-fill"></i> Tecnología Invisible</span>
+                        <h2>La fila inteligente que respeta tus horas.</h2>
+                        <p class="section-text">
+                            Nuestra IA analiza el clima y la afluencia en Barranco para darte el tiempo exacto. Pasea por el malecón y te avisaremos cuando sea tu turno.
+                        </p>
+                        
+                        <div class="metrics-summary">
+                            <div class="metric-summary-card">
+                                <div class="metric-icon"><i class="bi bi-cloud-sun"></i></div>
+                                <div>
+                                    <span class="metric-label">Clima Barranco</span>
+                                    <span id="live-weather" class="metric-value">16°C, Garúa</span>
+                                </div>
+                            </div>
+                            <div class="metric-summary-card">
+                                <div class="metric-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                                <div>
+                                    <span class="metric-label">Afluencia Local</span>
+                                    <span id="live-crowd" class="metric-value">Media-Alta</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fila Virtual Widget Card -->
+                    <div class="widget-wrapper">
+                        <div class="widget-card" id="fila-widget">
+                            <div class="widget-header">
+                                <div class="live-indicator-container">
+                                    <span class="live-dot animate-pulse"></span>
+                                    <span class="live-text">Fila en Vivo - Barranco</span>
+                                </div>
+                                <span class="widget-time-updated" id="widget-last-update">Act. hace 10s</span>
+                            </div>
+
+                            <div class="widget-body" id="widget-body-state">
+                                <!-- State: Idle (Not joined) -->
+                                <div id="widget-state-idle" class="widget-state">
+                                    <div class="widget-stats-grid">
+                                        <div class="stat-box">
+                                            <i class="bi bi-hourglass-split"></i>
+                                            <span class="stat-val" id="wait-time-value">12 min</span>
+                                            <span class="stat-lbl">Espera Estimada</span>
+                                        </div>
+                                        <div class="stat-box">
+                                            <i class="bi bi-people-fill"></i>
+                                            <span class="stat-val" id="people-count-value">3</span>
+                                            <span class="stat-lbl">Personas Delante</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-status-banner">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                        <span>Recomendado: Unirse ahora para asegurar mesa para las 15:45.</span>
+                                    </div>
+
+                                    <form id="form-join-queue" class="widget-form">
+                                        <div class="form-group">
+                                            <label for="queue-name">Nombre</label>
+                                            <input type="text" id="queue-name" placeholder="Ej. Franco" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="queue-guests">Personas</label>
+                                            <select id="queue-guests">
+                                                <option value="1">1 Persona (Estudio)</option>
+                                                <option value="2" selected>2 Personas</option>
+                                                <option value="3">3 Personas</option>
+                                                <option value="4">4+ Personas</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn-accent-glow w-full">
+                                            <i class="bi bi-person-plus-fill"></i> Unirse a la Fila
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <!-- State: Active (Joined) -->
+                                <div id="widget-state-active" class="widget-state hidden">
+                                    <div class="queue-active-header">
+                                        <div class="ticket-badge">Tu Turno: #A-24</div>
+                                        <h3 class="client-welcome">¡Estás en la fila, <span id="client-name-span">Franco</span>!</h3>
+                                    </div>
+
+                                    <div class="timer-radial-container">
+                                        <div class="timer-circle">
+                                            <svg viewBox="0 0 100 100">
+                                                <circle class="bg" cx="50" cy="50" r="45"></circle>
+                                                <circle id="timer-progress" class="prog" cx="50" cy="50" r="45"></circle>
+                                            </svg>
+                                            <div class="timer-text">
+                                                <span class="timer-min" id="active-wait-time">12</span>
+                                                <span class="timer-unit">minutos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="active-status-details">
+                                        <div class="status-row">
+                                            <span>Mesa para:</span>
+                                            <strong id="active-guests-count">2 personas</strong>
+                                        </div>
+                                        <div class="status-row">
+                                            <span>Personas adelante:</span>
+                                            <strong id="active-people-ahead" class="color-accent">3</strong>
+                                        </div>
+                                        <div class="status-row">
+                                            <span>Estado:</span>
+                                            <span class="badge-status" id="active-status-text">Analizando afluencia...</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-actions">
+                                        <button id="btn-leave-queue" class="btn-outline-danger w-full">
+                                            <i class="bi bi-x-circle"></i> Cancelar mi Turno
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carta Digital Viva Section -->
+        <section id="carta-dinamica" class="section menu-section">
+            <div class="container">
+                <div class="menu-header-wrapper">
+                    <div>
+                        <span class="badge-accent"><i class="bi bi-lightning-charge-fill"></i> En Vivo</span>
+                        <h2>Carta Digital "Viva"</h2>
+                        <p class="section-text">Lo que ves, es lo que hay. Nuestro menú se actualiza en vivo para que nunca te quedes sin tu antojo.</p>
+                    </div>
+                    
+                    <!-- Search and filters -->
+                    <div class="menu-controls">
+                        <div class="search-box">
+                            <i class="bi bi-search"></i>
+                            <input type="text" id="menu-search" placeholder="Buscar tu café o postre...">
+                        </div>
+                        <div class="menu-tabs" id="menu-tabs">
+                            <button class="tab-btn active" data-category="todos">Todos</button>
+                            <button class="tab-btn" data-category="cafe">Especialidad</button>
+                            <button class="tab-btn" data-category="postres">Postres</button>
+                            <button class="tab-btn" data-category="estudio">Estudiar (Packs)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-container">
+                    <!-- Javascript will dynamically render products here -->
+                </div>
+
+                <!-- AI Recommendations module (Interactive Card Link) -->
+                <div class="ai-recommendation-banner" id="ai-recommender">
+                    <div class="ai-rec-header">
+                        <div class="ai-sparkle"><i class="bi bi-stars"></i> IA Sabor Ancestral 2.0</div>
+                        <h3>Recomendación Inteligente para Ti</h3>
+                        <p>Selecciona tus antojos favoritos en la carta y nuestra IA te propondrá el maridaje perfecto para tu sesión de estudio.</p>
+                    </div>
+                    
+                    <div class="ai-rec-interactive">
+                        <div class="user-selection-box">
+                            <span class="lbl">Tu café seleccionado:</span>
+                            <div class="selected-product-preview" id="selected-product-container">
+                                <span class="placeholder-text">Haz clic en un producto de la carta...</span>
+                            </div>
+                        </div>
+                        <div class="ai-arrow"><i class="bi bi-plus-lg"></i></div>
+                        <div class="recommended-pair-box">
+                            <span class="lbl">Sugerencia de maridaje:</span>
+                            <div class="recommended-product-preview" id="recommended-product-container">
+                                <span class="placeholder-text">Selecciona un café arriba para ver...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sostenibilidad e Impacto Section -->
+        <section id="impacto" class="section impacto-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="impacto-visual">
+                        <div class="circular-impact-card">
+                            <div class="circular-chart-container">
+                                <svg class="circular-chart" viewBox="0 0 36 36">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="92, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="percentage">92%</div>
+                            </div>
+                            <span class="impact-card-lbl">Desperdicios Evitados</span>
+                        </div>
+                        
+                        <div class="impact-stats-card">
+                            <div class="impact-stat-item">
+                                <span class="num" id="stat-saved-kg">45.8</span>
+                                <span class="lbl">Kg comida guardada hoy</span>
+                            </div>
+                            <div class="impact-divider"></div>
+                            <div class="impact-stat-item">
+                                <span class="num">Cero</span>
+                                <span class="lbl">Desperdicio de café</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-info justify-center">
+                        <span class="badge-accent green"><i class="bi bi-globe-leaf"></i> Café con Consciencia</span>
+                        <h2>Cero desperdicio de alimentos gracias a la tecnología predictiva.</h2>
+                        <p class="section-text">
+                            Usamos algoritmos avanzados para cruzar los datos de afluencia, clima de Barranco y tendencias del día. Así preparamos solo lo necesario, logrando una verdadera Economía Circular y Cero Desperdicio.
+                        </p>
+                        
+                        <div class="impact-benefits">
+                            <div class="benefit-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>
+                                    <h4>Ingredientes siempre frescos</h4>
+                                    <p>Al no tener sobre-inventario, tu café y postre siempre se preparan en su punto exacto.</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>
+                                    <h4>Reducción de huella de carbono</h4>
+                                    <p>Menos desperdicio significa un menor impacto ambiental en nuestro querido distrito de Barranco.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo"><span class="logo-accent">Café</span> Ancestral</a>
+                <p>Sabor Ancestral 2.0: Tecnología invisible para respetar tu tiempo en el corazón de Barranco.</p>
+                <div class="footer-socials">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links-col">
+                <h4>Navegación</h4>
+                <a href="#hero">Inicio</a>
+                <a href="#fila-virtual">Fila Virtual</a>
+                <a href="#carta-dinamica">Carta Dinámica</a>
+                <a href="#impacto">Sostenibilidad</a>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>Ubicación y Horarios</h4>
+                <p class="footer-info-text"><i class="bi bi-geo-alt-fill"></i> Av. Pedro de Osma 218, Barranco, Lima</p>
+                <p class="footer-info-text"><i class="bi bi-clock-fill"></i> Lun - Dom: 7:30 AM - 10:00 PM</p>
+                <p class="footer-info-text"><i class="bi bi-laptop"></i> WiFi de alta velocidad disponible</p>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>Contacto</h4>
+                <p class="footer-info-text">¿Quieres reservar para un grupo de estudio?</p>
+                <a href="mailto:hola@cafeancestral.pe" class="footer-email-link">hola@cafeancestral.pe</a>
+                <button class="btn-accent-glow-sm" id="footer-contact-btn"><i class="bi bi-chat-heart-fill"></i> Escríbenos</button>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Café Ancestral. Creado con pasión por el tiempo y el café de especialidad.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
